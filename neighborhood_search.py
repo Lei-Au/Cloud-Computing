@@ -199,4 +199,3 @@ class Idle_dataset(object):
                ' ' + str(self.machine_num)
 
 
- 
