@@ -216,3 +216,4 @@ class Idle_dataset(object):
                ' ' + str(self.postOrderJob) + \
                ' ' + str(self.idleTime) + \
                ' ' + str(self.machine_num)
+ 

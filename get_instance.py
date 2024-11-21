@@ -105,3 +105,4 @@ class DAG(object):
     my_graph = Graph_Matrix(list(nodes.keys()))
     my_graph.add_edges_from_list(edge_list)
     matrix = np.array(my_graph.matrix)
+ 

@@ -10,7 +10,7 @@ from get_instance import DAG
 from functools import reduce
 from deap import tools
 import time
-
+ 
 class EDA(Probability_model):
     def __init__(self,DAG, machine_num, network_domain, power_domain,
                  voltage_relative_speed_pair = {1:4, 0.8:2, 0.6:1.2, 0.4:0.5}, energy_coeffi=1,
