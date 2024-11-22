@@ -4,7 +4,6 @@ from deap import tools
 import numpy as np
 import copy
 
-
 class EDA_NS_fixed(EDA_fixed):
     def __init__(self,DAG, machine_num, network_domain, power_domain,
                  voltage_relative_speed_pair = {1:4, 0.8:2, 0.6:1.2, 0.4:0.5}, energy_coeffi=1,
@@ -120,7 +119,7 @@ class EDA_NS_fixed(EDA_fixed):
         ind = list(individual[0]).index(job)
         return individual[2][ind]
 
-    def go_run(self, loop_num, population_num):
+    def go_run(self, loop_num, population_num,CXPB,MPB):
         random.seed(42)
 
         # Statistics computation
@@ -134,6 +133,7 @@ class EDA_NS_fixed(EDA_fixed):
         logbook.header = "gen", "evals", "std", "min", "avg", "max"
 
         population = self.toolbox.population(population_num)
+        pop = self.toolbox.population(population_num)
 
         for indivi in population:
             self.neighborhood_search(indivi)
@@ -151,7 +151,6 @@ class EDA_NS_fixed(EDA_fixed):
             parents = population
             population = self.toolbox.generate(population_num)
             pop = self.toolbox.select(pop, population_num)
-
 
             fitnesses = self.toolbox.map(self.toolbox.evaluate, population)
             for ind, fit in zip(population, fitnesses):
@@ -216,3 +215,4 @@ class Idle_dataset(object):
                ' ' + str(self.postOrderJob) + \
                ' ' + str(self.idleTime) + \
                ' ' + str(self.machine_num)
+
